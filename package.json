@@ -1,5 +1,5 @@
 {
-  "name": "pivottable",
+  "name": "@aleison/pivottable",
   "version": "2.23.0",
   "description": "Javascript Pivot Table (aka Pivot Grid, Pivot Chart, Cross-Tab) implementation with drag'n'drop",
   "main": "dist/pivot.js",
@@ -20,14 +20,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/nicolaskruchten/pivottable.git"
+    "url": "git://https://github.com/alejandroguille/pivottable.git"
   },
-  "author": "Nicolas Kruchten",
+  "author": "Alejandro Ison",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nicolaskruchten/pivottable/issues"
+    "url": "https://github.com/alejandroguille/pivottable/issues"
   },
-  "homepage": "https://github.com/nicolaskruchten/pivottable",
+  "homepage": "https://github.com/alejandroguille/pivottable",
   "dependencies": {
     "jquery": ">=1.9.0"
   },
@@ -46,5 +46,12 @@
     "gulp-rename": "^1.2.0",
     "gulp-minify-css": "^0.3.11",
     "gulp-concat": "^2.4.2"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

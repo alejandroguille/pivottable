@@ -1595,10 +1595,23 @@
               });
               initialRender = false;
             }
-            subopts.aggregatorName = aggregator.val();
-            subopts.vals = vals;
-            subopts.aggregator = opts.aggregators[aggregator.val()](vals);
-            subopts.renderer = opts.renderers[renderer.val()];
+            
+           /*
+            Extra code
+           */
+           subopts = getCustomOptions(opts, subopts, aggregator, vals);
+           /*
+           End extra code 
+           */
+          
+           /*
+           Original code
+           subopts.aggregatorName = aggregator.val();
+           subopts.vals = vals;
+           subopts.aggregator = opts.aggregators[aggregator.val()](vals);
+           subopts.renderer = opts.renderers[renderer.val()];
+            */
+
             subopts.rowOrder = rowOrderArrow.data("order");
             subopts.colOrder = colOrderArrow.data("order");
             exclusions = {};
