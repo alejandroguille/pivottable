@@ -1599,18 +1599,47 @@
            /*
             Extra code
            */
-           subopts = getCustomOptions(opts, subopts, aggregator, vals);
+          if( ( aggregator.val() == 'Suma de enteros' || aggregator.val() == 'Integer Sum') && vals[0] != null){
+            var aggMap = {
+              'agg1': {
+                  aggType: 'Count',
+                  arguments: [],
+                  name: 'Cantidad',
+                  varName :'a',
+                  renderEnhancement : 'none'
+              },
+
+              'agg2': {
+                  aggType: 'Sum',
+                  arguments: [vals[0]],
+                  name: 'Suma',
+                  varName :'b',
+                  hidden : false,
+                  renderEnhancement : 'none'
+              },
+            };
+            opts.aggregators['Sumaotro'] = $.pivotUtilities.multifactAggregatorGenerator(aggMap, []);
+            subopts.aggregatorName = 'Sumaotro';
+            subopts.vals = vals;
+            subopts.aggregator = opts.aggregators['Sumaotro'](vals);
+            subopts.renderer = opts.renderers['Sumaotro'];
+          }else{
+            subopts.aggregatorName = aggregator.val();
+            subopts.vals = vals;
+            subopts.aggregator = opts.aggregators[aggregator.val()](vals);
+            subopts.renderer = opts.renderers[renderer.val()];
+          }
            /*
            End extra code 
            */
           
            /*
-           Original code
+           Original code 
            subopts.aggregatorName = aggregator.val();
            subopts.vals = vals;
            subopts.aggregator = opts.aggregators[aggregator.val()](vals);
-           subopts.renderer = opts.renderers[renderer.val()];
-            */
+           subopts.renderer = opts.renderers[renderer.val()];*/
+           
 
             subopts.rowOrder = rowOrderArrow.data("order");
             subopts.colOrder = colOrderArrow.data("order");
