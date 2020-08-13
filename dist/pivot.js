@@ -1515,9 +1515,16 @@
         });
         $("<td>").addClass('pvtVals pvtUiCell').appendTo(tr1).append($("<span>").append("Sumatoria de Valores").append("<br />")).append(aggregator).append(rowOrderArrow).append(colOrderArrow).append($("<br>"));
         $("<td>").addClass('pvtAxisContainer pvtHorizList pvtCols pvtUiCell').appendTo(tr1).append($("<span>").append("Columnas").append("<br />"));
+        
+        /*Codigo nuevo*/
         tr2 = $("<tr>").appendTo(uiTable);
         tr2.append($("<td>").addClass('pvtAxisContainer pvtRows pvtUiCell').attr("valign", "top").append($("<span>").append("Filas").append("<br />")));
-        pivotTable = $("<td>").attr("valign", "top").addClass('pvtRendererArea').appendTo(tr2);
+        table = $("<td>").attr("valign", "top").addClass('pvtRendererArea').appendTo(tr2);
+        $("<div id='scrollone'><div></div></div>").appendTo(table);
+        fix = $("<div>").attr("id", "scrolltwo").appendTo(table);
+        pivotTable = $("<td>").attr("valign", "top").addClass('pvtRendererArea').appendTo(fix);
+       /* end */
+
         if (opts.unusedAttrsVertical === true || unusedAttrsVerticalAutoOverride) {
           uiTable.find('tr:nth-child(1)').prepend(rendererControl);
           uiTable.find('tr:nth-child(2)').prepend(unused);
