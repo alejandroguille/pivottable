@@ -1275,7 +1275,7 @@
           "class": "pvtUi"
         }).attr("cellpadding", 5);
         rendererControl = $("<td>").addClass("pvtUiCell");
-        rendererControl.append($("<p>").append("Tipos de Resultado"));
+        rendererControl.append($("<span>").append("Tipos de Resultado").append("<br />"));
         renderer = $("<select>").addClass('pvtRenderer').appendTo(rendererControl).bind("change", function() {
           return refresh();
         });
@@ -1285,7 +1285,7 @@
           if (!hasProp.call(ref, x)) continue;
           $("<option>").val(x).html(x).appendTo(renderer);
         }
-        unused = $("<td>").addClass('pvtAxisContainer pvtUnused pvtUiCell').append($("<p>").append("Arrastrar campos para agregar al informe"));
+        unused = $("<td>").addClass('pvtAxisContainer pvtUnused pvtUiCell').append($("<span>").append("Arrastrar campos para agregar al informe").append("<br />"));
         shownAttributes = (function() {
           var results;
           results = [];
@@ -1513,10 +1513,10 @@
           $(this).html(ordering[$(this).data("order")].colSymbol);
           return refresh();
         });
-        $("<td>").addClass('pvtVals pvtUiCell').appendTo(tr1).append($("<p>").append("Sumatoria de Valores")).append(aggregator).append(rowOrderArrow).append(colOrderArrow).append($("<br>"));
-        $("<td>").addClass('pvtAxisContainer pvtHorizList pvtCols pvtUiCell').appendTo(tr1).append($("<p>").append("Columnas"));
+        $("<td>").addClass('pvtVals pvtUiCell').appendTo(tr1).append($("<span>").append("Sumatoria de Valores").append("<br />")).append(aggregator).append(rowOrderArrow).append(colOrderArrow).append($("<br>"));
+        $("<td>").addClass('pvtAxisContainer pvtHorizList pvtCols pvtUiCell').appendTo(tr1).append($("<span>").append("Columnas").append("<br />"));
         tr2 = $("<tr>").appendTo(uiTable);
-        tr2.append($("<td>").addClass('pvtAxisContainer pvtRows pvtUiCell').attr("valign", "top").append($("<p>").append("Filas")));
+        tr2.append($("<td>").addClass('pvtAxisContainer pvtRows pvtUiCell').attr("valign", "top").append($("<span>").append("Filas").append("<br />")));
         pivotTable = $("<td>").attr("valign", "top").addClass('pvtRendererArea').appendTo(tr2);
         if (opts.unusedAttrsVertical === true || unusedAttrsVerticalAutoOverride) {
           uiTable.find('tr:nth-child(1)').prepend(rendererControl);
