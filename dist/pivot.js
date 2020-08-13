@@ -1275,15 +1275,17 @@
           "class": "pvtUi"
         }).attr("cellpadding", 5);
         rendererControl = $("<td>").addClass("pvtUiCell");
+        rendererControl.append($("<p>").append("Tipos de Resultado"));
         renderer = $("<select>").addClass('pvtRenderer').appendTo(rendererControl).bind("change", function() {
           return refresh();
         });
         ref = opts.renderers;
         for (x in ref) {
+
           if (!hasProp.call(ref, x)) continue;
           $("<option>").val(x).html(x).appendTo(renderer);
         }
-        unused = $("<td>").addClass('pvtAxisContainer pvtUnused pvtUiCell');
+        unused = $("<td>").addClass('pvtAxisContainer pvtUnused pvtUiCell').append($("<p>").append("Arrastrar campos para agregar al informe"));
         shownAttributes = (function() {
           var results;
           results = [];
@@ -1511,10 +1513,10 @@
           $(this).html(ordering[$(this).data("order")].colSymbol);
           return refresh();
         });
-        $("<td>").addClass('pvtVals pvtUiCell').appendTo(tr1).append(aggregator).append(rowOrderArrow).append(colOrderArrow).append($("<br>"));
-        $("<td>").addClass('pvtAxisContainer pvtHorizList pvtCols pvtUiCell').appendTo(tr1);
+        $("<td>").addClass('pvtVals pvtUiCell').appendTo(tr1).append($("<p>").append("Sumatoria de Valores")).append(aggregator).append(rowOrderArrow).append(colOrderArrow).append($("<br>"));
+        $("<td>").addClass('pvtAxisContainer pvtHorizList pvtCols pvtUiCell').appendTo(tr1).append($("<p>").append("Columnas"));
         tr2 = $("<tr>").appendTo(uiTable);
-        tr2.append($("<td>").addClass('pvtAxisContainer pvtRows pvtUiCell').attr("valign", "top"));
+        tr2.append($("<td>").addClass('pvtAxisContainer pvtRows pvtUiCell').attr("valign", "top").append($("<p>").append("Filas")));
         pivotTable = $("<td>").attr("valign", "top").addClass('pvtRendererArea').appendTo(tr2);
         if (opts.unusedAttrsVertical === true || unusedAttrsVerticalAutoOverride) {
           uiTable.find('tr:nth-child(1)').prepend(rendererControl);
