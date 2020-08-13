@@ -1,7 +1,7 @@
 {
   "name": "sooft-pivottable",
-  "version": "2.23.3",
-  "description": "Javascript Pivot Table (aka Pivot Grid, Pivot Chart, Cross-Tab) implementation with drag'n'drop",
+  "version": "2.23.4",
+  "description": "Javascript Pivot",
   "main": "dist/pivot.js",
   "files": [
     "dist"
@@ -25,8 +25,6 @@
   },
   "devDependencies": {},
   "directories": {
-    "example": "examples",
-    "test": "tests"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
