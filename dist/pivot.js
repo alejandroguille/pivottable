@@ -36,9 +36,9 @@
     numberFormat = function(opts) {
       var defaults;
       defaults = {
-        digitsAfterDecimal: 2,
+        digitsAfterDecimal: 0,
         scaler: 1,
-        thousandsSep: ",",
+        thousandsSep: ".",
         decimalSep: ".",
         prefix: "",
         suffix: ""
@@ -1609,13 +1609,14 @@
             Extra code
            */
           if( ( aggregator.val() == 'Suma de enteros' || aggregator.val() == 'Integer Sum') && vals[0] != null){
+            
             var aggMap = {
               'agg1': {
-                  aggType: 'Count',
-                  arguments: [],
-                  name: 'Cantidad',
-                  varName :'a',
-                  renderEnhancement : 'none'
+                aggType: 'Count',
+                arguments: [],
+                name: 'Cantidad',
+                varName :'a',
+                renderEnhancement : 'none'
               },
 
               'agg2': {
@@ -1627,6 +1628,11 @@
                   renderEnhancement : 'none'
               },
             };
+
+            if($.pivotUtilities.customAggs){
+              aggMap = $.pivotUtilities.customAggs;
+            }
+
             opts.aggregators['Sumaotro'] = $.pivotUtilities.multifactAggregatorGenerator(aggMap, []);
             subopts.aggregatorName = 'Sumaotro';
             subopts.vals = vals;
