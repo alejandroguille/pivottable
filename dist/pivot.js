@@ -39,7 +39,7 @@
         digitsAfterDecimal: 0,
         scaler: 1,
         thousandsSep: ".",
-        decimalSep: ".",
+        decimalSep: ",",
         prefix: "",
         suffix: ""
       };
