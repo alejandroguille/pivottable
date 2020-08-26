@@ -1,6 +1,6 @@
 {
   "name": "sooft-pivottable",
-  "version": "2.37.10",
+  "version": "2.37.11",
   "description": "Javascript Pivot Table (aka Pivot Grid, Pivot Chart, Cross-Tab) implementation with drag'n'drop",
   "main": "dist/pivot.js",
   "files": [
