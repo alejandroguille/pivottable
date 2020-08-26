@@ -1608,7 +1608,7 @@
            /*
             Extra code
            */
-          if( ( aggregator.val() == 'Suma de enteros' || aggregator.val() == 'Integer Sum') && vals[0] != null){
+          if( (renderer.val() == 'Table' || renderer.val() == 'Tabla') &&  ( aggregator.val() == 'Suma de enteros' || aggregator.val() == 'Integer Sum') && vals[0] != null){
             
             var aggMap = {
               'agg1': {
