@@ -1520,6 +1520,12 @@
         tr2 = $("<tr>").appendTo(uiTable);
         tr2.append($("<td>").addClass('pvtAxisContainer pvtRows pvtUiCell').attr("valign", "top").append($("<span>").append("Filas").append("<br />")));
         table = $("<td>").attr("valign", "top").addClass('pvtRendererArea').appendTo(tr2);
+
+        /* agregar html en header */
+        if($.pivotUtilities.headerHtml){
+          $($.pivotUtilities.headerHtml).appendTo(table);
+        }
+
         $("<div id='scrollone'><div></div></div>").appendTo(table);
         fix = $("<div>").attr("id", "scrolltwo").appendTo(table);
         pivotTable = $("<td>").attr("valign", "top").addClass('pvtRendererArea').appendTo(fix);
@@ -1608,7 +1614,7 @@
            /*
             Extra code
            */
-          if( (renderer.val() == 'Table' || renderer.val() == 'Tabla') &&  ( aggregator.val() == 'Suma de enteros' || aggregator.val() == 'Integer Sum') && vals[0] != null){
+          if( $.pivotUtilities.customAggs && (renderer.val() == 'Table' || renderer.val() == 'Tabla') &&  ( aggregator.val() == 'Suma de enteros' || aggregator.val() == 'Integer Sum') && vals[0] != null){
             
             var aggMap = {
               'agg1': {
@@ -1628,10 +1634,8 @@
                   renderEnhancement : 'none'
               },
             };
-
-            if($.pivotUtilities.customAggs){
-              aggMap = $.pivotUtilities.customAggs;
-            }
+              
+            aggMap = $.pivotUtilities.customAggs;
 
             opts.aggregators['Sumaotro'] = $.pivotUtilities.multifactAggregatorGenerator(aggMap, []);
             subopts.aggregatorName = 'Sumaotro';
